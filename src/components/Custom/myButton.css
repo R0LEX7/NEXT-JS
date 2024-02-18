@@ -1,0 +1,43 @@
+.gradient_anim_btn_demo {
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 14px 20px 14px 20px;
+  border-radius: 0.5em;
+  background: -webkit-linear-gradient(
+      225deg,
+      rgb(251, 175, 21),
+      rgb(251, 21, 242),
+      rgb(21, 198, 251)
+    )
+    0% 0% / 300% 300%;
+  background-size: 200% auto;
+  -webkit-animation: gradient_move 3s ease infinite;
+  animation: gradient_move 3s ease infinite;
+}
+
+@-webkit-keyframes gradient_move {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}
+@keyframes gradient_move {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}
