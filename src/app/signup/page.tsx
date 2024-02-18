@@ -1,11 +1,13 @@
 "use client";
-
+import { Fieldset, TextInput, Button, Group } from "@mantine/core";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast"
-
+import MyButton from "@/components/Custom/myButton";
 import axios from "axios";
+
+import "@/components/Custom/mantine.css"
 
 const Page: React.FC = () => {
   const router = useRouter();
@@ -39,47 +41,50 @@ const Page: React.FC = () => {
 
   return (
     <div className=" flex justify-center items-center w-full h-screen p-2">
-      <form className="flex flex-col  gap-4 border w-[400px] h-[600px]  p-4 rounded-xl justify-center items-center">
-        <div className="w-full flex items-center border h-[60px] p-3 rounded-lg">
-          <input
-            className="w-full h-[50px] text-xl  bg-transparent outline-none"
-            placeholder="email"
-            type="email"
-            value={userData.email}
-            onChange={(e) => handleChange({ email: e.target.value })}
-          />
-        </div>
-        <div className="w-full flex items-center border h-[60px] p-3 rounded-lg">
-          <input
-            className="w-full h-[50px] text-xl  bg-transparent outline-none"
-            placeholder="username"
-            type="text"
-            value={userData.username}
-            onChange={(e) => handleChange({ username: e.target.value })}
-          />
-        </div>
-        <div className="w-full flex items-center border h-[60px] p-3 rounded-lg">
-          <input
-            className="w-full h-[50px] text-xl  bg-transparent outline-none"
-            placeholder="password"
-            type="password"
-            value={userData.password}
-            onChange={(e) => handleChange({ password: e.target.value })}
-          />
-        </div>
-        <div className="w-full flex items-center border h-[60px] p-3 rounded-lg">
-          <button
-            className="w-full h-[50px] text-xl  bg-transparent outline-none"
-            onClick={(e) => handleSubmit(e)}
-          >
-            {" "}
-            Sign Up{" "}
-          </button>
-        </div>
+
+      <Fieldset
+
+      radius="lg"
+        legend=" Signup "
+        className="bg-transparent border text-[#AE3EC8] w-[400px] h-[380px] border-[#AE3EC8]"
+      >
+        <TextInput
+          label="Email"
+          placeholder="Type your Username.."
+          mt="md"
+          type="username"
+          bg={"transparent"}
+          variant="unstyle"
+          value={userData.username}
+          onChange={(e) => handleChange({ email: e.target.value })}
+        />
+        <TextInput
+          label="Email"
+          placeholder="Type your Email.."
+          mt="md"
+          type="email"
+          bg={"transparent"}
+          variant="unstyle"
+          value={userData.email}
+          onChange={(e) => handleChange({ email: e.target.value })}
+        />
+        <TextInput
+          label="Password"
+          placeholder="Type your Password..."
+          type="password"
+          bg={"transparent"}
+          variant="unstyle"
+          value={userData.password}
+          onChange={(e) => handleChange({ password: e.target.value })}
+        />
+
+        <Group justify="space-between" mt="md">
         <p>
           Already sign up? <Link href="/login">login</Link>
         </p>
-      </form>
+          <MyButton title={"Login"} handleClick={(e) => handleSubmit(e)} />
+        </Group>
+      </Fieldset>
     </div>
   );
 };
