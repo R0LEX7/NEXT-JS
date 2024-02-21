@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -17,6 +17,11 @@ const navLinks = [
   },
 ];
 
+interface itemProp {
+  path: string;
+  name: string;
+}
+
 export function Navbar() {
   const router = useRouter();
   return (
@@ -30,8 +35,8 @@ export function Navbar() {
   );
 }
 
-const NavLinkComp = ({item}) => {
-    console.log(item);
+const NavLinkComp = ({ item } : {item : itemProp}) => {
+  console.log(item);
 
   return (
     <Link href={item.path}>

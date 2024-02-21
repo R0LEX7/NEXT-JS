@@ -13,9 +13,9 @@ const Page: React.FC = () => {
   const router = useRouter();
 
   const [userData, setUserData] = useState({
-    email: null,
-    username: null,
-    password: null,
+    email: "",
+    username: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -24,7 +24,7 @@ const Page: React.FC = () => {
     setUserData({ ...userData, ...args });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/users/signup", userData);

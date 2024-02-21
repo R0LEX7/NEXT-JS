@@ -3,7 +3,7 @@ import { Text, Paper, Title } from "@mantine/core";
 
 
 
-export function Profile({user}) {
+export function Profile({user} : any) {
     console.log("props" , user);
 
   return (

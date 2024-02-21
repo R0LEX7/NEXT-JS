@@ -67,7 +67,7 @@ const Page: React.FC = () => {
         <p>
           Create a new account? <Link href="/signup">Sign Up</Link>
         </p>
-          <MyButton title={"Login"} handleClick={handleSubmit} />
+          <MyButton title={"Login"} handleClick={(e :any) =>  handleSubmit(e)} />
         </Group>
       </Fieldset>
     </div>
