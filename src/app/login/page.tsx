@@ -14,22 +14,22 @@ const Page: React.FC = () => {
   const router = useRouter();
 
   const [userData, setUserData] = useState({
-    email: null,
-    password: null,
+    email: "",
+    password:"",
   });
 
   const handleChange = (args: {}) => {
     setUserData({ ...userData, ...args });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/users/login", userData);
       console.log(response.data);
       toast.success(`Welcome ${response.data.user.username}`);
       router.push("/profile");
-    } catch (error) {
+    } catch (error:any) {
       console.log("Login Error ", error.message);
 
       toast.error(`Signup Error: ${error?.response?.data?.error}`);

@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error:any) {
     console.log("Error in Profile route ", error);
     return NextResponse.json({
       message: "error occurred",

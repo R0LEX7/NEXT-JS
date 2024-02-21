@@ -1,4 +1,4 @@
-"use client";
+
 import { Text, Paper, Title } from "@mantine/core";
 
 

@@ -17,7 +17,7 @@ const Page = () => {
       const response = await axios.get("/api/users/profile");
       console.log(response.data.user);
       setUser(response.data.user);
-    } catch (error) {
+    } catch (error:any) {
       console.log("error ", error);
     }
   };

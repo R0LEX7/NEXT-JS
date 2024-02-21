@@ -31,7 +31,7 @@ const Page: React.FC = () => {
       console.log("signup Success ", response.data);
       toast.success(`Signup Successfully`)
       router.push("/login")
-    } catch (error) {
+    } catch (error : any) {
       console.log("error : ", error?.response?.data?.error);
       toast.error(`Signup Error: ${error?.response?.data?.error}`)
     } finally {

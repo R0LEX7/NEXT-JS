@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import User from "@/models/user.model";
-import jwt from "jsonwebtoken";
 import { connect } from "@/config/dbConfig";
+import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 
 connect();
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
       username: user.username,
     };
 
-    const token = await jwt.sign(tokenData, process.env.JWT_KEY, {
+    const token = await jwt.sign(tokenData, process.env.JWT_KEY!, {
       expiresIn: "3d",
     });
 
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
       httpOnly: true,
     });
     return response;
-  } catch (error) {
+  } catch (error : any) {
     console.log("error in login ", error);
     return NextResponse.json(
       { error: error.message, message: "Login error" },

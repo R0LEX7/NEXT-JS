@@ -13,7 +13,7 @@ export async function GET() {
       expires: new Date(0),
     });
     return response;
-  } catch (error) {
+  } catch (error:any) {
     console.log("error in logout ", error);
     return NextResponse.json(
       { message: "Can`t able to logout", error },
